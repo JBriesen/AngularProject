@@ -2,8 +2,8 @@
     'use strict';
 
     angular
-        .module('userList', [
-            'userDetail'
+        .module('userDetail', [
 
         ]);
+
 }());
