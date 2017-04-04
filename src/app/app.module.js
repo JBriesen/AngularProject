@@ -2,5 +2,5 @@
     'use strict';
 
     angular
-        .module('app', ['userList']);
+        .module('app', ['userList','navigation', 'ngRoute']);
 }());

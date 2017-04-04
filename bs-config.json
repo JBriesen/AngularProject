@@ -1,6 +1,8 @@
 {
   "port": 8000,
-  "files": ["./src/**/*.{html,htm,css,js}"],
+  "files": [
+    "./src/**/*.{html,htm,js,css}"
+    ],
   "server": { 
     "baseDir": "./src",
     "routes":{"/bower_components": "bower_components"}

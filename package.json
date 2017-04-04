@@ -19,5 +19,8 @@
   "homepage": "https://github.com/JBriesen/AngularProject#readme",
   "devDependencies": {
     "lite-server": "^2.3.0"
+  },
+  "dependencies": {
+    "angular-ui-router": "^0.4.2"
   }
 }

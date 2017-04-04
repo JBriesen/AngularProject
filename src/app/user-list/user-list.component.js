@@ -10,11 +10,10 @@
 
         function componentController() {
             var vm = this;
+            vm.test = "controller test"
 
-            init();
-
-            function init() {
-                console.log("hello");
+            vm.getUserList = function getUserList(){
+                console.log("getting user list");
             }
         }
 
