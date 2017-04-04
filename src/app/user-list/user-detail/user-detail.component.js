@@ -2,30 +2,41 @@
     'use strict';
 
     angular
-        .module ('userDetail')
-        .component ('userDetail', component());
+        .module('userDetail')
+        .component('userDetail', component());
 
 
     function component() {
 
-        function componentController(){
+        function componentController() {
             var vm = this;
-            vm.username = "Test User Name";
-            vm.age = 5;
-            
+            var userDetails = {
+                "user": {
+                    username: "test",
+                    age: 25
+                },
+                "user2": {
+                    username: "test2",
+                    age: 37
+                }
+            }
+            vm.employees = userDetails;
+            console.log(vm)
+
             init();
 
-            function init(){
-
+            function init() {
             }
         }
 
         return {
-            bindings: {},
+            bindings: {
+                users: '=',
+            },
             templateUrl: "app/user-list/user-detail/user-detail.html",
             controller: componentController,
             controllerAs: ''
         }
     }
 
-} ());
+}());

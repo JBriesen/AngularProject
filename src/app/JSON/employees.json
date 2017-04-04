@@ -1,0 +1,22 @@
+{
+    "johnS": {
+        "age": 25,
+        "firts-name": "John",
+        "last-name": "Smith"
+    },
+    "BarbaraS": {
+        "age": 20,
+        "firts-name": "Barbara",
+        "last-name": "Snake"
+    },
+    "NathanD": {
+        "age": 23,
+        "firts-name": "Nathan",
+        "last-name": "Drake"
+    },
+    "EricaN": {
+        "age": 32,
+        "firts-name": "Erica",
+        "last-name": "North"
+    }
+}
