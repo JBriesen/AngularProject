@@ -8,30 +8,21 @@
 
     function component() {
 
-        function componentController() {
+        function componentController($routeParams,userService) {
+
             var vm = this;
-            var userDetails = {
-                "user": {
-                    username: "user",
-                    age: 25
-                },
-                "user2": {
-                    username: "user2",
-                    age: 37
-                },
-                "user3": {
-                    username: "user3",
-                    age: 25
-                },
-                "user4": {
-                    username: "user4",
-                    age: 37
-                }
+            vm.getUserDetails = getUserDetails;
+            vm.createUsers = createUsers;
+            vm.usersArr = [];
+            function createUsers(){
+                userService.createUser('John','22');
             }
 
-
-            vm.employees = userDetails;
-            console.log(vm)
+            function getUserDetails(){
+                console.log("test User details");
+                var data = userService.getUsers();
+                vm.usersArr = data.users
+            }
 
             init();
 
@@ -41,7 +32,6 @@
 
         return {
             bindings: {
-                users: '=',
             },
             templateUrl: "app/user-list/user-detail/user-detail.html",
             controller: componentController,

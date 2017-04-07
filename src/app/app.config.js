@@ -7,7 +7,10 @@ angular.
             });
 
             $routeProvider.
-                when('/userList', {
+                when('/userList/', {
+                    template: '<user-list class="col-xs-6"></user-list>'
+                }).
+                when('/userList/:id', {
                     template: '<user-list class="col-xs-6"></user-list>'
                 }).
                 when('/test',{
