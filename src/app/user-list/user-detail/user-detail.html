@@ -7,6 +7,5 @@
         <a href="/{{user.username}}" class="list-group-item" ng-repeat="user in $ctrl.employees"> UserName: {{user.username}}</a>
     </div>
 
-    user arr {{$ctrl.test}}
-    <div ng-repeat="user in $ctrl.usersArr"> {{user.name}}</div>
+    <div ng-repeat="user in $ctrl.usersArr" ng-click="$ctrl.goToUserPage($index)"> {{user.name}} </div>
 </div>

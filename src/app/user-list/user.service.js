@@ -40,6 +40,10 @@
             }
             this.data.users.push(user);
         }
+
+        getUserList(){
+            return this.data;
+        }
     }
 
     angular.module('app').service('userService', userService);

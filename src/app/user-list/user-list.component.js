@@ -8,22 +8,30 @@
 
     function component() {
 
-        function componentController() {
+        function componentController(userService) {
             var vm = this;
-            vm.test = "controller test";
+            vm.getUserList = getUserList;
+            vm.createUser = createUser;
+            vm.userListArr = [];
 
-            vm.getUserDetail = function getUserList(){
-                console.log("getting user list");
+            function getUserList() {
+                vm.userListArr = userService.getUserList();
+                console.log(vm.userListArr);
+
+            }
+
+            function createUser() {
+                console.log('creating user')
+                userService.createUser('john', '25');
             }
         }
 
         return {
             bindings: {
-                id:'<'
             },
             templateUrl: "app/user-list/user-list.html",
             controller: componentController,
-            controllerAs: ''
+            controllerAs: 'vm'
         }
     }
 
