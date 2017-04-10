@@ -22,7 +22,6 @@
             bindings: {},
             templateUrl: "app/navigation/navigation.html",
             controller: componentController,
-            controllerAs: ''
         }
     }
 } ());

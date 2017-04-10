@@ -1,39 +1,24 @@
-// (function(){
-//     'use strict';
-
-//     angular
-//         .module('app')
-//         .service('Service', Service)
-
-//     /** @ngInject */
-//     function Service(){
-
-//         this.getUsers = getUsers;
-
-//         function getUsers(){
-//             this.name = 'serviceName';
-//             this.age = 'serviceAge' ;
-//             return this;
-//         }
-//     }
-
-// }());
-
 (function () {
     'use strict';
 
     class userService {
         constructor() {
             this.data = {
-                users: []
+                users: [
+                    { name: 'Mila', age: '32', occupation: 'Tester' },
+                    { name: 'Jason', age:'22', occupation: 'Developer' },
+                    { name: 'Angela', age: '27', occupation: 'Developer' },
+                    { name: 'Eric', age: '37', occupation: 'Tester' }
+                ]
             };
         }
-        getUsers(){
+        getUsers() {
             console.log('returning users');
             return this.data;
         }
 
         createUser(name, age) {
+            console.log('create users');
             var user = {
                 name: name,
                 age: age
@@ -41,8 +26,22 @@
             this.data.users.push(user);
         }
 
-        getUserList(){
+        //create an array of users
+        createUsers([name, age]) {
+            console.log('create users');
+            var user = {
+                name: name,
+                age: age
+            }
+            this.data.users.push.apply([user, age]);
+        }
+
+        getUserList() {
             return this.data;
+        }
+
+        getUserDetails(index) {
+            return this.data.users[index];
         }
     }
 

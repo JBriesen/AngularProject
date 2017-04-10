@@ -5,7 +5,6 @@
         .module('userList')
         .component('userList', component());
 
-
     function component() {
 
         function componentController(userService) {
@@ -15,6 +14,8 @@
             vm.userListArr = [];
 
             function getUserList() {
+                console.log('get user');
+
                 vm.userListArr = userService.getUserList();
                 console.log(vm.userListArr);
 
@@ -31,7 +32,6 @@
             },
             templateUrl: "app/user-list/user-list.html",
             controller: componentController,
-            controllerAs: 'vm'
         }
     }
 

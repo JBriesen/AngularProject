@@ -1,11 +1,7 @@
 <div class="col-xs-12">
-    <button  ng-click="$ctrl.getUserDetails()">get details</button>
-    <button  ng-click="$ctrl.createUsers()">create details</button>
-
-    <div class="detailContainer list-group">
-        <br/>
-        <a href="/{{user.username}}" class="list-group-item" ng-repeat="user in $ctrl.employees"> UserName: {{user.username}}</a>
-    </div>
-
-    <div ng-repeat="user in $ctrl.usersArr" ng-click="$ctrl.goToUserPage($index)"> {{user.name}} </div>
+    <h1>Detail page</h1>
+    <div class="test">Name : {{$ctrl.user.name}}</div>
+    <div class="test">Age : {{$ctrl.user.age}}</div>
+    <div class="test">Occupation : {{$ctrl.user.occupation}}</div>
+    
 </div>
