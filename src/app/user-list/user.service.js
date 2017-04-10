@@ -12,6 +12,14 @@
                 ]
             };
         }
+
+        removeUser(index){
+            this.data.users.splice(index,1);
+        }
+
+        editUser(index,user){
+            this.data.users[index] = user;
+        }
         getUsers() {
             console.log('returning users');
             return this.data;
