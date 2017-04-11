@@ -3,6 +3,7 @@
 
     angular
         .module('userList', [
-            'userDetail'
+            'userDetail',
+            'userEdit'
                     ]);
 }());

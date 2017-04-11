@@ -13,8 +13,10 @@ angular.
                 when('/userList/:id', {
                     template: '<user-detail></user-detail>'
                 }).
-                when('/test',{
-                    template:'<h1>Test</h1>'
+                when('/userList/edit/:id',{
+                    template:'<user-edit></user-edit>'
+
+                    // template:'<h1>User edit</h1>'
                 }).
                 otherwise('/home');
         }

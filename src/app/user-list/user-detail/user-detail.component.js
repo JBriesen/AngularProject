@@ -24,6 +24,9 @@
 
             function editUser(){
                 console.log('edit user');
+                console.log(index);
+                $location.path('/userList/edit/'+index);
+
                 //userService.editUser()
             }
 
