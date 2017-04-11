@@ -13,7 +13,6 @@
             var vm = this;
             vm.editUser = editUser;
             vm.removeUser = removeUser;
-            vm.saveUser = saveUser;
             
             init();
 
@@ -26,8 +25,6 @@
                 console.log('edit user');
                 console.log(index);
                 $location.path('/userList/edit/'+index);
-
-                //userService.editUser()
             }
 
             function removeUser(){
@@ -36,15 +33,6 @@
                 $location.path('/userList/')
             }
 
-            function saveUser(){
-                console.log('save changes');
-                var user = {
-                    name:'test',
-                    age:99,
-                    occupation:'Tester extraordianier'
-                }
-                userService.editUser(index,user);
-            }
 
             function addNewUser(){
                 console.log('create new user');

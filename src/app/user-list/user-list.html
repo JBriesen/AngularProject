@@ -1,6 +1,20 @@
-<button ng-click='$ctrl.createUser()'>create user</button>
-<button ng-click='$ctrl.getUserList()'>get  user list</button>
-<hr>
-USERLIST:
+<div class="col-xs-12">
+    <h1>Users panel</h1>
+</div>
+<span></span>
+<div class="col-xs-12">
+    <button class="btn btn-primary" ng-click='$ctrl.createUser()'>create user</button>
+    <button class="btn" ng-click='$ctrl.getUserList()'>Display users</button>
+</div>
 
-<div ng-repeat='user in $ctrl.userListArr.users'> name: {{user.name}} <a href='/userList/{{$index}}'> Details </a> </div>
+<div class="col-xs-12" style="height:25px;"></div>
+
+
+<div class="col-xs-4">
+    <ul class="list-group">
+        <li class="list-group-item row" ng-repeat='user in $ctrl.userListArr.users'>
+            <div class="col-xs-8"> Name: {{user.name}} </div>
+            <a href='/userList/{{$index}}' class="col-xs-4"> Details </a>
+        </li>
+    </ul>
+</div>
