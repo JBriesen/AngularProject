@@ -7,7 +7,7 @@
 
     function component() {
 
-        function componentController(userService) {
+        function componentController(userService,$location) {
             var vm = this;
             vm.getUserList = getUserList;
             vm.createUser = createUser;
@@ -15,7 +15,6 @@
 
             function getUserList() {
                 console.log('get user');
-
                 vm.userListArr = userService.getUserList();
                 console.log(vm.userListArr);
 
@@ -23,7 +22,7 @@
 
             function createUser() {
                 console.log('creating user')
-                userService.createUser('john', '25');
+                $location.path('/createUser/')
             }
         }
 

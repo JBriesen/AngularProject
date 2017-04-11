@@ -32,11 +32,6 @@
                 userService.removeUser(index);
                 $location.path('/userList/')
             }
-
-
-            function addNewUser(){
-                console.log('create new user');
-            }
         }
 
         return {

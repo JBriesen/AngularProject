@@ -15,9 +15,13 @@ angular.
                 }).
                 when('/userList/edit/:id',{
                     template:'<user-edit></user-edit>'
-
-                    // template:'<h1>User edit</h1>'
                 }).
+                when('/createUser',{
+                    template:'<create-user></create-user>'
+                }).
+                when('/login/',{
+                    template:'<user-login></user-login>'
+                })
                 otherwise('/home');
         }
     ]);

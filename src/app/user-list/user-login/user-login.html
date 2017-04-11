@@ -1,0 +1,14 @@
+
+<h1>Login page</h1>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" class="form-control" name="name" ng-model="$ctrl.login.name" required></input>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input id="occuppasswordation" class="form-control" name="password" ng-model="$ctrl.login.password" required> </input>
+    </div>
+
+    <button class="btn btn-primary" ng-disabled="editUserForm.$invalid" ng-click="$ctrl.login()">Login</button>
+    <button class="btn btn-default" ng-click="$ctrl.cancelLogin()">Cancel</button>

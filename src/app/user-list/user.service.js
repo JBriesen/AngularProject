@@ -24,6 +24,7 @@
         editUser(index, user) {
             this.data.users[index] = user;
         }
+
         getUsers() {
             console.log('returning users');
             return this.data;
@@ -38,14 +39,9 @@
             this.data.users.push(user);
         }
 
-        //create an array of users
-        createUsers([name, age]) {
-            console.log('create users');
-            var user = {
-                name: name,
-                age: age
-            }
-            this.data.users.push.apply([user, age]);
+        saveNewUser(user) {
+            console.log('saving user');
+            this.data.users.push(user);
         }
 
         getUserList() {

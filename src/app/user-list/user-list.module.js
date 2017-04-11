@@ -4,6 +4,7 @@
     angular
         .module('userList', [
             'userDetail',
-            'userEdit'
+            'userEdit',
+            'createUser'
                     ]);
 }());
