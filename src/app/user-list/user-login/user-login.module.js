@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('user-login', [
+        .module('userLogin', [
             
         ]);
 

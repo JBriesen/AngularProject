@@ -21,7 +21,7 @@ angular.
                 }).
                 when('/login/',{
                     template:'<user-login></user-login>'
-                })
+                }).
                 otherwise('/home');
         }
     ]);

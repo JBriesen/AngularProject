@@ -5,6 +5,7 @@
         .module('userList', [
             'userDetail',
             'userEdit',
-            'createUser'
+            'createUser',
+            'userLogin'
                     ]);
 }());

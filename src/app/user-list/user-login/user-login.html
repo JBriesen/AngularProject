@@ -1,14 +1,21 @@
 
 <h1>Login page</h1>
+<ng-form name="loginUserForm" class="col-xs-6">
     <div class="form-group">
         <label for="name">Name</label>
-        <input id="name" class="form-control" name="name" ng-model="$ctrl.login.name" required></input>
+        <input id="name" class="form-control" name="name" ng-model="$ctrl.user.name" required></input>
     </div>
 
     <div class="form-group">
         <label for="password">Password</label>
-        <input id="occuppasswordation" class="form-control" name="password" ng-model="$ctrl.login.password" required> </input>
+        <input id="password" class="form-control" name="password" ng-model="$ctrl.user.password" required> </input>
     </div>
 
-    <button class="btn btn-primary" ng-disabled="editUserForm.$invalid" ng-click="$ctrl.login()">Login</button>
+    <div class="alert alert-warning" ng-show="$ctrl.response < 0">{{$ctrl.message}}</div>
+
+
+
+    <button class="btn btn-primary" ng-disabled="loginUserForm.$invalid" ng-click="$ctrl.loginCheck()">Login</button>
     <button class="btn btn-default" ng-click="$ctrl.cancelLogin()">Cancel</button>
+
+    </ng-form>
