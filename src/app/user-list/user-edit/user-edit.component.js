@@ -19,13 +19,20 @@
 
             function init(){
                 var user = userService.getUserDetails(userId);
-                vm.user = angular.copy(user);//Is this needed to prevent 2 way binding?
+                vm.user = {};
+                vm.user.name = user.name;
+                vm.user.age = user.age;
+                vm.user.occupation = user.occupation;
+                vm.user.id = user.id;
+
             }
 
-            function saveUserDetails(){
-                var user = vm.user;
+            function saveUserDetails(user){
+            
                 console.log('save user details');
                 userService.editUser(user);
+                $location.path('/userList/'+user.id)
+                
             }
             function cancelEditUser(){
                 $location.path('/home/');

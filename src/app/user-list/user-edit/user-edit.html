@@ -16,7 +16,7 @@
         <input id="occupation" class="form-control" name="occupation" value="{{$ctrl.user.occupation}}" ng-model="$ctrl.user.occupation" required> </input>
     </div>
 
-    <button class="btn btn-primary" ng-disabled="editUserForm.$invalid" ng-click="$ctrl.saveUserDetails()">Save</button>
+    <button class="btn btn-primary" ng-disabled="editUserForm.$invalid" ng-click="$ctrl.saveUserDetails($ctrl.user)">Save</button>
     <button class="btn btn-default" ng-click="$ctrl.cancelEditUser()">Cancel</button>
 
 </ng-form>
