@@ -40,9 +40,8 @@
 
         return {
             bindings: {},
-            templateUrl:"app/user-list/user-login/user-login.html",
-            controller: componentController,
-            controllerAs: ''
+            templateUrl:"app/user-list/user-login/user-login.component.html",
+            controller: componentController
         }
     }
 

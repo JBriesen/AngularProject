@@ -9,7 +9,7 @@
 
     function component() {
 
-        function componentController(userService) {
+        function componentController(userService,$location) {
             var vm = this;
             vm.saveNewUser = saveNewUser;
 

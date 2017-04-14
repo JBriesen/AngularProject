@@ -9,12 +9,23 @@
 
 <div class="col-xs-12" style="height:25px;"></div>
 
+<div class="col-xs-12">
+    <div class="col-xs-6">
+        <div class="input-group">
+            <input ng-model="searchTerm" ng-change="$ctrl.change(searchTerm)" type="text" class="form-control" placeholder="Search for...">
+        </div>
+    </div>
+</div>
 
-<div class="col-xs-4">
-    <ul class="list-group">
-        <li class="list-group-item row" ng-repeat='user in $ctrl.userListArr.users'>
-            <div class="col-xs-8"> Name: {{user.name}} </div>
-            <a href='/userList/{{$index}}' class="col-xs-4"> Details </a>
-        </li>
-    </ul>
+<div class="col-xs-12" style="height:25px;"></div>
+
+<div class="col-xs-12">
+    <div class="col-xs-6">
+        <ul class="list-group">
+            <li class="list-group-item row" ng-repeat='user in $ctrl.userListArr'>
+                <div class="col-xs-8"> Name: {{user.name}} </div>
+                <a href='/userList/{{user.id}}' class="col-xs-4"> Details </a>
+            </li>
+        </ul>
+    </div>
 </div>

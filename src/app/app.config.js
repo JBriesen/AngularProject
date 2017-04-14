@@ -25,3 +25,9 @@ angular.
                 otherwise('/home');
         }
     ]);
+
+    // var promise = userService.getUsers();
+
+    // promise
+    //     .then(users => console.log(users))
+    //     .catch(error => console.log(error));

@@ -12,17 +12,25 @@
             vm.getUserList = getUserList;
             vm.createUser = createUser;
             vm.userListArr = [];
+            vm.change = change;
 
             function getUserList() {
                 console.log('get user');
-                vm.userListArr = userService.getUserList();
+                vm.userListArr = userService.getAllUsersList();
                 console.log(vm.userListArr);
-
             }
 
             function createUser() {
                 console.log('creating user')
                 $location.path('/createUser/')
+            }
+
+            function change(searchTerm){
+                if(searchTerm.length > 2){
+                    console.log("searching for: "+searchTerm);
+                    vm.userListArr = userService.getUserList(searchTerm);
+                    console.log(vm.userListArr)
+                }
             }
         }
 
