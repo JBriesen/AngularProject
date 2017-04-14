@@ -5,15 +5,15 @@
         constructor() {
             this.data = {
                 users: [
-                    { name: 'Mila', age: '32', occupation: 'Tester', password: '111' ,id:1},
-                    { name: 'Jason', age: '22', occupation: 'Developer', password: '111' ,id:2},
-                    { name: 'Angela', age: '27', occupation: 'Developer', password: '111' ,id:3},
-                    { name: 'Eric', age: '37', occupation: 'Tester', password: '111' ,id:4},
-                    { name: 'John', age: '45', occupation: 'Tester', password: '111' ,id:5},
-                    { name: 'Lisa', age: '56', occupation: 'Sales', password: '111' ,id:6},
-                    { name: 'Brenda', age: '21', occupation: 'Sales', password: '111' ,id:7},
-                    { name: 'Brian', age: '36', occupation: 'Tester', password: '111' ,id:8},
-                    { name: 'Brianer', age: '36', occupation: 'Tester', password: '111' ,id:9}
+                    { name: 'Mila', lastName:'Smith', age: '32', occupation: 'Tester', password: '111' ,id:1},
+                    { name: 'Jason', lastName:'Cage', age: '22', occupation: 'Developer', password: '111' ,id:2},
+                    { name: 'Angela', lastName:'Briggs',age: '27', occupation: 'Developer', password: '111' ,id:3},
+                    { name: 'Eric', lastName:'Blade', age: '37', occupation: 'Tester', password: '111' ,id:4},
+                    { name: 'John', lastName:'Cash', age: '45', occupation: 'Tester', password: '111' ,id:5},
+                    { name: 'Lisa', lastName:'Anne', age: '56', occupation: 'Sales', password: '111' ,id:6},
+                    { name: 'Brenda', lastName:'Slim', age: '21', occupation: 'Sales', password: '111' ,id:7},
+                    { name: 'Brian', lastName:'Sweeney', age: '36', occupation: 'Tester', password: '111' ,id:8},
+                    { name: 'Brianer', lastName:'Logan', age: '36', occupation: 'Tester', password: '111' ,id:9}
                 ]
             };
         }

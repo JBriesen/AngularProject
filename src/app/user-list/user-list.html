@@ -19,11 +19,30 @@
 
 <div class="col-xs-12" style="height:25px;"></div>
 
+<div class="col-xs-2">
+    <div class="form-group">
+        <label for="SortBy">Filer By:</label>
+        <select class="form-control" id="SortBy" ng-model="occupationFilter">
+            <option value="Tester">Tester</option>
+            <option value="Designer">Designer</option>
+            <option value="Sales">Sales</option>
+            <option value="Developer">Developer</option>
+            <option value="">All</option>
+        </select>
+    </div>
+    {{occupationFilter}}
+</div>
+
+<div class="col-xs-12" style="height:25px;"></div>
+
 <div class="col-xs-12">
     <div class="col-xs-6">
+        <div ng-show="$ctrl.userListArr.length < 1 && searchTerm.length > 2">
+            <span>Did not find any matching result</span>
+        </div>
         <ul class="list-group">
-            <li class="list-group-item row" ng-repeat='user in $ctrl.userListArr'>
-                <div class="col-xs-8"> Name: {{user.name}} </div>
+            <li class="list-group-item row" ng-repeat='user in $ctrl.userListArr | filter:{occupation:occupationFilter}'>
+                <div class="col-xs-8"> Name: {{user.name}} {{user.occupation}} {{occupationFilter}} </div>
                 <a href='/userList/{{user.id}}' class="col-xs-4"> Details </a>
             </li>
         </ul>

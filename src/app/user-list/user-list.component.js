@@ -29,7 +29,9 @@
                 if(searchTerm.length > 2){
                     console.log("searching for: "+searchTerm);
                     vm.userListArr = userService.getUserList(searchTerm);
-                    console.log(vm.userListArr)
+                }
+                else{
+                    vm.userListArr = [];
                 }
             }
         }
