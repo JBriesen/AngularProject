@@ -7,33 +7,30 @@
 
     function component() {
 
-        function componentController($routeParams,userService, $location) {
-            var userId = $routeParams.id;           
+        function componentController($routeParams, userService, $location) {
+            var userId = $routeParams.id;
             var vm = this;
             vm.editUser = editUser;
             vm.removeUser = removeUser;
-            
+
             init();
 
             function init() {
-                
+
                 userService.getUserDetails(userId)
-                .then(
-                    function(result){
-                        vm.userListArr = result
-                        console.log("data")
-                        console.log(result);
-                    }
-                );
+                    .then(
+                    function (result) {
+                        vm.userDetails = result
+                    });
             }
 
-            function editUser(){
+            function editUser() {
                 console.log('edit user');
                 console.log(userId);
-                $location.path('/userList/edit/'+userId);
+                $location.path('/userList/edit/' + userId);
             }
 
-            function removeUser(){
+            function removeUser() {
                 console.log('remove user');
                 userService.removeUser(userId);
                 $location.path('/userList/')

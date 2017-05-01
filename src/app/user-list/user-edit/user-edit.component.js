@@ -2,13 +2,13 @@
     'use strict';
 
     angular
-        .module ('app')
-        .component ('userEdit', component());
+        .module('app')
+        .component('userEdit', component());
 
 
     function component() {
 
-        function componentController($routeParams, userService, $location){
+        function componentController($routeParams, userService, $location) {
             var vm = this;
             var userId = $routeParams.id;
 
@@ -17,24 +17,26 @@
             console.log('userEdit')
             init();
 
-            function init(){
-                var user = userService.getUserDetails(userId);
-                vm.user = {};
-                vm.user.name = user.name;
-                vm.user.age = user.age;
-                vm.user.occupation = user.occupation;
-                vm.user.id = user.id;
-
+            function init() {
+                var user = userService.getUserDetails(userId)
+                    .then(function (response) {
+                        user = response;
+                        vm.user = {};
+                        vm.user.name = user.username;
+                        vm.user.age = user.age;
+                        vm.user.occupation = user.job;
+                        vm.user.id = user.id;
+                    })
             }
 
-            function saveUserDetails(user){
-            
+            function saveUserDetails(user) {
+
                 console.log('save user details');
                 userService.editUser(user);
-                $location.path('/userList/'+user.id)
-                
+                $location.path('/userList/' + user.id)
+
             }
-            function cancelEditUser(){
+            function cancelEditUser() {
                 $location.path('/home/');
             }
         }
@@ -42,9 +44,9 @@
         return {
             bindings: {
             },
-            templateUrl:"app/user-list/user-edit/user-edit.html",
+            templateUrl: "app/user-list/user-edit/user-edit.html",
             controller: componentController,
             controllerAs: ''
         }
     }
-} ());
+}());

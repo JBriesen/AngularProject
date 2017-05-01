@@ -1,45 +1,46 @@
 (function () {
     'use strict';
     class userService {
-
-        
         constructor($http) {
             userService.$inject = ['$http']
-        
+
             this.employees = $http.get('./app/JSON/employees.json')
                 .then(function (res) {
-                    return res.data;
+                    return res.data
                 });
-
-                
         }
-
         findUser(id) {
-            var employees = this.employees.then(
-                function (){
-                    this.employees.find(user => user.id == id);
-                }
-            )
-            return employees
+            return this.employees.then(function (employees) {
+                return employees.find(user => user.id == id);
+            });
         }
 
         findUserIndex(id) {
-            return this.data.users.findIndex(user => user.id == id);
+            return this.employees.then(function (employees) {
+                return employees.findIndex(user => user.id == id);
+            })
         }
 
         removeUser(id) {
-            var index = this.findUserIndex(id)
-            this.data.users.splice(index, 1);
+            var index = this.findUserIndex(id);
+            this.employees.then(function(employees){
+                employees.splice(index,1);
+            })
         }
 
-        editUser(updatedUser) {
-            var index = this.findUserIndex(updatedUser.id);
-            this.data.users[index] = updatedUser;
-        }
+// needs a better update method;
+        // editUser(updatedUser) {
+        //     var id = updatedUser.id;
+        //     this.removeUser(id)
+        //     this.saveNewUser(updatedUser)
+        // }
+
         saveNewUser(user) {
-            console.log('saving user');
-            this.data.users.push(user);
+            this.employees.then(function(employees){
+                employees.push(user);
+            })
         }
+
         getAllUsersList() {
             return this.employees;
         }
