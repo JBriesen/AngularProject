@@ -1,10 +1,11 @@
 {
   "port": 8000,
   "files": [
-    "./src/**/*.{html,htm,js,css}"
+    "src/**/*.{html,htm,js,css}"
     ],
   "server": { 
     "baseDir": "./src",
+    "index":"index.html",
     "routes":{"/bower_components": "bower_components"}
   }
 }

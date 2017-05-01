@@ -16,8 +16,15 @@
             init();
 
             function init() {
-                var user = userService.getUserDetails(userId);
-                vm.user = user;
+                
+                userService.getUserDetails(userId)
+                .then(
+                    function(result){
+                        vm.userListArr = result
+                        console.log("data")
+                        console.log(result);
+                    }
+                );
             }
 
             function editUser(){

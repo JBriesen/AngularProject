@@ -15,9 +15,13 @@
             vm.change = change;
 
             function getUserList() {
-                console.log('get user');
-                vm.userListArr = userService.getAllUsersList();
-                console.log(vm.userListArr);
+                userService.getAllUsersList()
+                .then(
+                    function(result){
+                        vm.userListArr = result
+                        console.log(result);
+                    }
+                )
             }
 
             function createUser() {
