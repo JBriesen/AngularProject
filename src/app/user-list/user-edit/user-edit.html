@@ -2,8 +2,18 @@
 
 <ng-form name="editUserForm" class="col-xs-6">
     <div class="form-group">
-        <label for="name">Name</label>
-        <input id="name" class="form-control" name="name" value="{{$ctrl.user.name}}" ng-model="$ctrl.user.name" required></input>
+        <label for="firstName">firstName</label>
+        <input id="firstName" class="form-control" name="firstName" value="{{$ctrl.user.firstName}}" ng-model="$ctrl.user.firstName" required></input>
+    </div>
+
+    <div class="form-group">
+        <label for="lastName">lastName</label>
+        <input id="lastName" class="form-control" name="lastName" value="{{$ctrl.user.lastName}}" ng-model="$ctrl.user.lastName" required></input>
+    </div>
+
+    <div class="form-group">
+        <label for="userName">userName</label>
+        <input id="userName" class="form-control" name="username" value="{{$ctrl.user.username}}" ng-model="$ctrl.user.username" required></input>
     </div>
 
     <div class="form-group">
@@ -12,11 +22,13 @@
     </div>
 
     <div class="form-group">
-        <label for="occupation">Occupation</label>
-        <input id="occupation" class="form-control" name="occupation" value="{{$ctrl.user.occupation}}" ng-model="$ctrl.user.occupation" required> </input>
+        <label for="job">job</label>
+        <input id="job" class="form-control" name="job" value="{{$ctrl.user.job}}" ng-model="$ctrl.user.job"
+            required> </input>
     </div>
-
-    <button class="btn btn-primary" ng-disabled="editUserForm.$invalid" ng-click="$ctrl.saveUserDetails($ctrl.user)">Save</button>
-    <button class="btn btn-default" ng-click="$ctrl.cancelEditUser()">Cancel</button>
-
+    <div>{{$ctrl.currentUser.role}}</div>
+    <div ng-if="$ctrl.currentUser.role == 'Admin' || $ctrl.currentUser.role == 'Unit-Manager'">
+        <button class="btn btn-primary" ng-disabled="editUserForm.$invalid" ng-click="$ctrl.saveUserDetails($ctrl.user)">Save</button>
+        <button class="btn btn-default" ng-click="$ctrl.cancelEditUser()">Cancel</button>
+    </div>
 </ng-form>

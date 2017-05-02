@@ -7,19 +7,21 @@
 
     function component() {
 
-        function componentController($routeParams, userService, $location,authService) {
+        function componentController($routeParams, userService, $location) {
             var userId = $routeParams.id;
             var vm = this;
             vm.editUser = editUser;
-            vm.currentUser = authService.getUserAuthenticated();
             vm.removeUser = removeUser;
 
             init();
 
             function init() {
-                console.log(userId)
-               vm.userDetails = userService.getUserDetails(userId);
-               console.log(vm.userDetails);
+
+                userService.getUserDetails(userId)
+                    .then(
+                    function (result) {
+                        vm.userDetails = result
+                    });
             }
 
             function editUser() {

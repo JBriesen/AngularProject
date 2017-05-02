@@ -1,0 +1,56 @@
+[
+	{
+		"vacationDays": 24,
+		"workDays": 58,
+		"sickDays": 2,
+		"employeeId": 1
+	},
+	{
+		"vacationDays": 10,
+		"workDays": 94,
+		"sickDays": 2,
+		"employeeId": 2
+	},
+	{
+		"vacationDays": 20,
+		"workDays": 27,
+		"sickDays": 3,
+		"employeeId": 3
+	},
+	{
+		"vacationDays": 25,
+		"workDays": 58,
+		"sickDays": 2,
+		"employeeId": 4
+	},
+	{
+		"vacationDays": 26,
+		"workDays": 81,
+		"sickDays": 2,
+		"employeeId": 5
+	},
+	{
+		"vacationDays": 6,
+		"workDays": 120,
+		"sickDays": 2,
+		"employeeId": 6
+	},
+	{
+		"vacationDays": 25,
+		"workDays": 110,
+		"sickDays": 1,
+		"employeeId": 7
+	},
+	{
+		"vacationDays": 26,
+		"workDays": 55,
+		"sickDays": 5,
+		"employeeId": 8
+	},
+	{
+		"vacationDays": 12,
+		"workDays": 37,
+		"sickDays": 4,
+		"employeeId": 9
+	}
+]

@@ -15,7 +15,13 @@
             vm.change = change;
 
             function getUserList() {
-                vm.userListArr = userService.getAllUsersList()
+                userService.getAllUsersList()
+                    .then(
+                    function (result) {
+                        vm.userListArr = result
+                        console.log(result);
+                    }
+                    )
             }
 
             function createUser() {
@@ -25,7 +31,12 @@
 
             function change(searchTerm) {
                 if (searchTerm.length > 2) {
-                    vm.userListArr = userService.getUserList(searchTerm)
+                    console.log("searching for: " + searchTerm);
+                    userService.getUserList(searchTerm).then(function(userList) {                        
+                        vm.userListArr = userList;
+                        console.log("test");
+                        console.log(vm.userListArr);
+                    })
                 }
                 else {
                     vm.userListArr = [];

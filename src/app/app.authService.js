@@ -1,32 +1,19 @@
-(function(){
+(function () {
     'use strict';
-
-    angular
-        .module('Module')
-        .service('authService', Service)
-
-    /** @ngInject */
-    function Service(Dependencies){
-        constructor(){
-            this.user = {
-                name: "",
-                type: "",
-                loggedInTime:""
-            }
-        }
-        this.getUserStatus = getUserStatus;
-        this.setUserStatus = setUserStatus;
-
-        function getUserStatus(){
-            return this.user;
+    class authService {
+        constructor() {
+            this.userIsAuthenticated = false;
         }
 
-        function setUserStatus(username, type){
-            this.user.name = username;
-            this.user.type = type;
-            this.user.loggedInTime = (new Date).toLocaleFormat("%A, %B %e, %Y");
-            console.log(this.user);
+        setUserAuthenticated(user){
+            this.userIsAuthenticated = true;
+            this.user = user;
+            console.log("user is authenticated");
+            console.log(user);
+        }
+        getUserAuthenticated(){
+            return this.user
         }
     }
-
+    angular.module('app').service('authService', authService);
 }());

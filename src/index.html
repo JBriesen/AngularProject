@@ -12,6 +12,8 @@
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+
 
 
     <script src="./app/app.module.js"></script>
@@ -19,6 +21,9 @@
 
     <script src="./app/user-list/user-list.module.js"></script>
     <script src="./app/user-list/user-list.component.js"></script>
+
+    <script src="./app/home/home.module.js"></script>
+    <script src="./app/home/home.component.js"></script>
 
     <script src="./app/navigation/navigation.module.js"></script>
     <script src="./app/navigation/navigation.component.js"></script>
@@ -35,12 +40,14 @@
     <script src="./app/user-list/user-login/user-login.module.js"></script>
     <script src="./app/user-list/user-login/user-login.component.js"></script>
 
+    <script src="./app/customer-stats/customer-stats.module.js"></script>
+    <script src="./app/customer-stats/customer-stats.component.js"></script>
+    
     <script src="./app/user-list/user.service.js"></script>
+    <script src="./app/customer-stats/customer-stats.service.js"></script>
+    <script src="./app/app.authService.js"></script>
 
-
-
-    <title>Angular  2</title>
-
+    <title>Angular project</title>
 </head>
 
 <div class="container-fluid">
@@ -48,7 +55,6 @@
     <div class="row">
         <ng-view class="col-xs-12"></ng-view>
     </div>
-
 </div>
 <!-- /.container -->
 </body>

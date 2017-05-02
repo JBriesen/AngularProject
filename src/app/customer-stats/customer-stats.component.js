@@ -3,25 +3,26 @@
 
     angular
         .module ('app')
-        .component ('navigation', component());
+        .component ('customerStats', component());
 
 
     function component() {
 
-        function componentController(authService){
+        function componentController(){
             var vm = this;
             
             init();
 
             function init(){
-                this.currentUser = authService.getUserAuthenticated();
+
             }
         }
 
         return {
             bindings: {},
-            templateUrl: "app/navigation/navigation.html",
             controller: componentController,
+            controllerAs: ''
         }
     }
+
 } ());

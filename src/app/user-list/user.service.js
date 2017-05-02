@@ -1,44 +1,42 @@
 (function () {
     'use strict';
     class userService {
-        constructor($http) {
-            userService.$inject = ['$http']
+        constructor($http, authService) {
+            this.authService = authService;
 
-            this.employees = $http.get('./app/JSON/employees.json')
-                .then(function (res) {
-                    return res.data
-                });
+            $http.get('./app/JSON/employees.json')
+                .then(res => {
+                    this.employees = res.data;
+                }).catch(error => {
+                    console.log(error);
+                })
         }
+
         findUser(id) {
-            return this.employees.then(function (employees) {
-                return employees.find(user => user.id == id);
-            });
+                return this.employees.find(user => user.id == id);
         }
 
         findUserIndex(id) {
-            return this.employees.then(function (employees) {
-                return employees.findIndex(user => user.id == id);
-            })
+                return this.employees.findIndex(user => user.id == id);
         }
 
         removeUser(id) {
             var index = this.findUserIndex(id);
-            this.employees.then(function(employees){
-                employees.splice(index,1);
-            })
+                this.employees.splice(index, 1);
         }
 
-// needs a better update method;
-        // editUser(updatedUser) {
-        //     var id = updatedUser.id;
-        //     this.removeUser(id)
-        //     this.saveNewUser(updatedUser)
-        // }
+        //object asign
+        editUser(newUserInfo) {
+            var id = newUserInfo.id;
+            var toUpdateUser = this.findUser(id)
+            Object.assign(toUpdateUser,newUserInfo)
+            console.log(toUpdateUser);
+            this.removeUser(id);
+            this.saveNewUser(toUpdateUser)
+        }
 
         saveNewUser(user) {
-            this.employees.then(function(employees){
-                employees.push(user);
-            })
+            this.employees.push(user);
         }
 
         getAllUsersList() {
@@ -46,9 +44,9 @@
         }
 
         getUserList(searchTerm) {
-            return this.data.users.filter(function (user) {
-                return user.name.includes(searchTerm);
-            });
+                return this.employees.filter(function (user) {
+                        return user.firstName.toLowerCase().includes(searchTerm.toLowerCase())
+                })
         }
 
         getUserDetails(userId) {
@@ -57,13 +55,14 @@
         }
         //TODO need to fix this check
         checkLogin(username, password) {
-            for (var i = 0; i < this.data.users.length; i++) {
+            for (var i = 0; i < this.employees.length; i++) {
                 //console.log(this.data.users[i])
-                if (this.data.users[i].name == username && this.data.users[i].password == password) {
-                    return this.data.users[i].id;
+                if (this.employees[i].username == username && this.employees[i].password == password) {
+                    this.authService.setUserAuthenticated(this.employees[i])
+                    return this.employees[i].id;
                     break;
                 }
-                else if (this.data.users[i].name == username && this.data.users[i].password != password) {
+                else if (this.employees[i].username == username && this.employees[i].password != password) {
                     return -1;
                     break;
                 }
@@ -71,6 +70,6 @@
             return -2;
         }
     }
+    userService.$inject = ['$http','authService']
     angular.module('app').service('userService', userService);
 }());
-

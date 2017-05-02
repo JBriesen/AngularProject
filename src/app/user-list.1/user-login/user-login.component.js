@@ -28,7 +28,6 @@
                 console.log(response);
                 if(response >= 0){
                     $location.path('/userList/'+response);
-                    
                 }
                 else if(response == -1){
                     vm.message = "Invalid password";
