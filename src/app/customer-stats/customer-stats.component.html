@@ -1,1 +1,11 @@
-<div class="col-xs-12">Customer Statistics</div>
+<div class="col-xs-6"># Customers :{{$ctrl.customerStats.length}}</div>
+<div class="col-xs-6"># Views :{{$ctrl.customerStats | sumOfValue:'views'}}</div>
+<div class="col-xs-6"># Clicks :{{$ctrl.customerStats | sumOfValue:'clicks'}}</div>
+<div class="col-xs-6"># Leads :{{$ctrl.customerStats | sumOfValue:'leads'}}</div>
+
+<div class="col-xs-12" ng-repeat="customer in $ctrl.customerStats">
+    <h3>{{customer.customerName}}</h3>
+    <div class="col-xs-3"> Views : {{customer.views}}</div>
+    <div class="col-xs-3"> Clicks : {{customer.clicks}} </div>
+    <div class="col-xs-3"> Leads : {{customer.leads}}</div>
+</div>

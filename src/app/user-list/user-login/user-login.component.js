@@ -9,7 +9,7 @@
 
     function component() {
 
-        function componentController(userService, $location, $rootScope){
+        function componentController(userService, $state, $rootScope){
             var vm = this;
             vm.loginCheck = loginCheck;
             vm.message = 0;
@@ -27,7 +27,7 @@
 
                 console.log(response);
                 if(response >= 0){
-                    $location.path('/userList/'+response);
+                    $state.go('home');
                     $rootScope.$broadcast("loggedInStatus",
                     {isLoggedIn:true, 
                         username:username

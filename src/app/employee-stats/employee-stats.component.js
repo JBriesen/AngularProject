@@ -3,24 +3,25 @@
 
     angular
         .module ('app')
-        .component ('customerStats', component());
+        .component ('employeeStats', component());
 
 
     function component() {
 
-        function componentController(statsService){
+        function componentController(statsService,authService){
             var vm = this;
+            vm.isLoggedIn = authService.getAuthStatus();
             init();
 
             function init(){
-                statsService.getCustStats().then(function(res){
-                    vm.customerStats = res.data
+                statsService.getEmplStats().then(function(res){
+                    vm.employeeStats = res.data
                 })
             }
         }
 
         return {
-            templateUrl: "app/customer-stats/customer-stats.component.html",
+            templateUrl: "app/employee-stats/employee-stats.component.html",
             bindings: {},
             controller: componentController,
             controllerAs: ''

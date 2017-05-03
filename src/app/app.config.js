@@ -43,6 +43,11 @@ angular.
                 return; 
             }
 
+            var homePage = toState.name === "home";
+            if(homePage){
+                return;
+            }
+
             var authStatus = authService.getAuthStatus();
             if (authStatus === false) {
                 e.preventDefault(); // stop current execution

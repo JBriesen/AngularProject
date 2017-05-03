@@ -3,7 +3,6 @@
     class userService {
         constructor($http, authService) {
             this.authService = authService;
-
             $http.get('./app/JSON/employees.json')
                 .then(res => {
                     this.employees = res.data;
