@@ -40,7 +40,7 @@ angular.
 
             var isLogin = toState.name === "login";
             if (isLogin) {
-                return; // no need to redirect 
+                return; 
             }
 
             var authStatus = authService.getAuthStatus();
