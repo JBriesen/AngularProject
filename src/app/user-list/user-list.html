@@ -49,7 +49,7 @@
         <ul class="list-group">
             <li class="list-group-item row" ng-repeat='user in $ctrl.userListArr | filter:{job:jobFilter} | orderBy:$ctrl.orderBy'>
                 <div class="col-xs-8"> Name: {{user.firstName}} {{user.lastName}} </div>
-                <a href='/userList/{{user.id}}' class="col-xs-4"> Details </a>
+                <a ui-sref='userDetail({id:user.id})' class="col-xs-4"> Details </a>
             </li>
         </ul>
     </div>

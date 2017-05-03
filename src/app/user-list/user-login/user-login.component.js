@@ -9,7 +9,7 @@
 
     function component() {
 
-        function componentController(userService, $location){
+        function componentController(userService, $location, $rootScope){
             var vm = this;
             vm.loginCheck = loginCheck;
             vm.message = 0;
@@ -28,7 +28,10 @@
                 console.log(response);
                 if(response >= 0){
                     $location.path('/userList/'+response);
-                    
+                    $rootScope.$broadcast("loggedInStatus",
+                    {isLoggedIn:true, 
+                        username:username
+                    });
                 }
                 else if(response == -1){
                     vm.message = "Invalid password";

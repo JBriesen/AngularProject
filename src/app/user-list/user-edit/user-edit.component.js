@@ -8,9 +8,9 @@
 
     function component() {
 
-        function componentController($routeParams, userService, $location, authService) {
+        function componentController($stateParams, $state,userService, authService) {
             var vm = this;
-            var userId = $routeParams.id;
+            var userId = $stateParams.id;
             vm.saveUserDetails = saveUserDetails;
             vm.cancelEditUser = cancelEditUser;
             vm.currentUser = authService.getUserAuthenticated();
@@ -30,10 +30,9 @@
             }
 
             function saveUserDetails(user) {
-
                 console.log('save user details');
                 userService.editUser(user);
-                $location.path('/userList/' + user.id)
+                $state.go('userDetail',{id:user.id})
 
             }
             function cancelEditUser() {

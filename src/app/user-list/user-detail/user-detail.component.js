@@ -7,8 +7,9 @@
 
     function component() {
 
-        function componentController($routeParams, userService, $location,authService) {
-            var userId = $routeParams.id;
+        function componentController(userService,authService,$stateParams,$state) {
+
+            var userId = $stateParams.id;
             var vm = this;
             vm.editUser = editUser;
             vm.currentUser = authService.getUserAuthenticated();
@@ -25,13 +26,14 @@
             function editUser() {
                 console.log('edit user');
                 console.log(userId);
-                $location.path('/userList/edit/' + userId);
+                //$location.path('/userList/edit/' + userId);
+                $state.go('userEdit',{id: userId})
             }
 
             function removeUser() {
                 console.log('remove user');
                 userService.removeUser(userId);
-                $location.path('/userList/')
+                $state.go('userList')
             }
         }
 

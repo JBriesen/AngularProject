@@ -6,6 +6,9 @@
   "server": { 
     "baseDir": "./src",
     "index":"index.html",
-    "routes":{"/bower_components": "bower_components"}
+    "routes":
+      {"/bower_components": "bower_components",
+      "/node_modules": "node_modules"
+      }
   }
 }

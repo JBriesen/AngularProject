@@ -7,7 +7,7 @@
 
     function component() {
 
-        function componentController(userService, $location) {
+        function componentController(userService, $state) {
             var vm = this;
             vm.getUserList = getUserList;
             vm.createUser = createUser;
@@ -20,7 +20,7 @@
 
             function createUser() {
                 console.log('creating user')
-                $location.path('/createUser/')
+                $state.go('createUser');
             }
 
             function change(searchTerm) {

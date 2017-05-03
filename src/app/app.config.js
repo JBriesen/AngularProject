@@ -1,36 +1,52 @@
 angular.
     module('app').
-    config(['$locationProvider', '$routeProvider',
-        function config($locationProvider, $routeProvider) {
+    config(['$locationProvider', '$stateProvider', '$urlRouterProvider',
+        function config($locationProvider, $stateProvider, $urlRouterProvider) {
             $locationProvider.html5Mode({
                 enabled: true
             });
 
-            $routeProvider.
-                when('/home/', {
+            $stateProvider.
+                state('home', {
                     template: '<home></home>',
+                    url: '/home'
                 }).
-                when('/userList/', {
+                state('userList', {
                     template: '<user-list></user-list>',
+                    url: '/userList/'
                 }).
-                when('/userList/:id', {
-                    template: '<user-detail></user-detail>'
+                state('userDetail', {
+                    template: '<user-detail></user-detail>',
+                    url: '/userList/:id'
                 }).
-                when('/userList/edit/:id', {
-                    template: '<user-edit></user-edit>'
+                state('userEdit', {
+                    template: '<user-edit></user-edit>',
+                    url: '/userList/edit/:id',
                 }).
-                when('/createUser', {
-                    template: '<create-user></create-user>'
+                state('createUser', {
+                    template: '<create-user></create-user>',
+                    url: '/createUser'
                 }).
-                when('/login/', {
-                    template: '<user-login></user-login>'
-                }).
-                otherwise('/home');
+                state('login', {
+                    template: '<user-login></user-login>',
+                    url: '/login'
+                })
+            $urlRouterProvider.otherwise('/home');
         }
-    ]);
+    ])
+    .run(function ($rootScope, $location, $state, authService) {
+        $rootScope.$on('$stateChangeStart', function (e, toState, toParams
+            , fromState, fromParams) {
 
-    // var promise = userService.getUsers();
+            var isLogin = toState.name === "login";
+            if (isLogin) {
+                return; // no need to redirect 
+            }
 
-    // promise
-    //     .then(users => console.log(users))
-    //     .catch(error => console.log(error));
+            var authStatus = authService.getAuthStatus();
+            if (authStatus === false) {
+                e.preventDefault(); // stop current execution
+                $state.go('login'); // go to login
+            }
+        });
+    });

@@ -8,11 +8,17 @@
         setUserAuthenticated(user){
             this.userIsAuthenticated = true;
             this.user = user;
-            console.log("user is authenticated");
-            console.log(user);
         }
         getUserAuthenticated(){
             return this.user
+        }
+        getAuthStatus(){
+            return this.userIsAuthenticated;
+        }
+
+        removeUserAuthenticated(){
+            this.userIsAuthenticated = false;
+            this.user = {};
         }
     }
     angular.module('app').service('authService', authService);
