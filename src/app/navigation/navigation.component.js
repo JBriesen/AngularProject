@@ -1,12 +1,14 @@
+
 (function () {
     'use strict';
+    //Upgraded component
 
     angular
         .module('app')
         .component('navigation', component());
 
     function component() {
-        function componentController(authService, $rootScope, $state) {
+        function componentController(authService, $rootScope, $state, UpgradeModule) {
             var vm = this;
             vm.loggedIn = false;
             vm.logOut = logout;

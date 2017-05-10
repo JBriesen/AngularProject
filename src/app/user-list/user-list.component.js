@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('userList')
+        .module('app')
         .component('userList', component());
 
     function component() {

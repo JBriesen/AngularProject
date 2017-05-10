@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en">
 
 <head>
     <base href="/">
@@ -14,7 +14,8 @@
     <script src="/bower_components/angular-route/angular-route.js"></script>
     <script src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
 
-    <script src="./app/app.module.js"></script>
+    <script src="./app/appjs.module.js"></script>
+
     <script src="./app/app.config.js"></script>
 
     <script src="./app/user-list/user-list.module.js"></script>
@@ -43,23 +44,37 @@
 
     <script src="./app/employee-stats/employee-stats.module.js"></script>
     <script src="./app/employee-stats/employee-stats.component.js"></script>
-    
+
     <script src="./app/user-list/user.service.js"></script>
     <script src="./app/stats.service.js"></script>
     <script src="./app/app.authService.js"></script>
 
     <script src="./app/filters/sumOfValue.filter.js"></script>
 
+    <!--             split here for angular section            -->
+
+    <script src="./app/app.component.js"></script>
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+    <script src="./systemjs.config.js"></script>
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+
+
     <title>Angular project</title>
 </head>
+<script>
+    System.import('./app/main.js').catch(function (err) { console.error(err); });
+</script>
+</head>
+<app-component></app-component>
 
-<div class="container-fluid">
+<!--<div class="container-fluid">
     <navigation></navigation>
     <div class="row">
         <ui-view class="col-xs-12"></ui-view>
     </div>
-</div>
-<!-- /.container -->
+</div>-->
+
 </body>
 
 </html>

@@ -4,7 +4,7 @@
     "src/**/*.{html,htm,js,css}"
     ],
   "server": { 
-    "baseDir": "./src",
+    "baseDir": ["./src", "./build/src"],
     "index":"index.html",
     "routes":
       {"/bower_components": "bower_components",
