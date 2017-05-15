@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/platform-browser", "@angular/upgrade/static", "./app.component", "./navigation/navigation.component.wrapper", "@angular/router"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/platform-browser", "@angular/upgrade/static", "./app.component", "./navigation/navigation.component.wrapper"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/upgrade
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, platform_browser_1, static_1, app_component_1, navigation_component_wrapper_1, router_1, appRoutes, Ng2AppModule;
+    var core_1, platform_browser_1, static_1, app_component_1, navigation_component_wrapper_1, Ng2AppModule;
     return {
         setters: [
             function (core_1_1) {
@@ -27,15 +27,9 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/upgrade
             },
             function (navigation_component_wrapper_1_1) {
                 navigation_component_wrapper_1 = navigation_component_wrapper_1_1;
-            },
-            function (router_1_1) {
-                router_1 = router_1_1;
             }
         ],
         execute: function () {
-            appRoutes = [
-                { path: '**', redirectTo: '/home' },
-            ];
             Ng2AppModule = class Ng2AppModule {
                 constructor(upgrade) {
                     this.upgrade = upgrade;
@@ -50,7 +44,6 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/upgrade
                     imports: [
                         platform_browser_1.BrowserModule,
                         static_1.UpgradeModule,
-                        router_1.RouterModule.forRoot(appRoutes)
                     ],
                     bootstrap: [],
                     providers: [],

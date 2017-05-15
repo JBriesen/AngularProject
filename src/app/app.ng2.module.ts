@@ -6,16 +6,16 @@ import { AppComponent } from "./app.component";
 import { NavigationDirective } from './navigation/navigation.component.wrapper'
 import {RouterModule, Routes} from '@angular/router'
 
-const appRoutes: Routes = [
-  { path: '**', redirectTo: '/home' },
-];
+// const appRoutes: Routes = [
+//   { path: '**', redirectTo: '/home' },
+// ];
 
 @NgModule({
   declarations:[AppComponent, NavigationDirective],
   imports: [
     BrowserModule,
     UpgradeModule,
-    RouterModule.forRoot(appRoutes)
+    //RouterModule.forRoot(appRoutes)
   ],
   bootstrap:[],
   providers:[],

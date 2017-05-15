@@ -25,8 +25,6 @@ System.register(["@angular/core", "@angular/upgrade/static"], function (exports_
                     selector: 'app-component',
                     template: `
  <p> angular 2 bootstrapped </p>
- <div class='ui-view'></div>
-<router-outlet></router-outlet>
  `,
                 })
             ], AppComponent);
