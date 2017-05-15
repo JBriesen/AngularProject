@@ -13,6 +13,7 @@
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-route/angular-route.js"></script>
     <script src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/node_modules/angular-ui-router/release/stateEvents.js"></script>
 
     <script src="./app/appjs.module.js"></script>
 
@@ -53,12 +54,11 @@
 
     <!--             split here for angular section            -->
 
-    <script src="./app/app.component.js"></script>
+    <!--<script src="./app/app.component.js"></script>-->
     <script src="/node_modules/systemjs/dist/system.src.js"></script>
     <script src="./systemjs.config.js"></script>
     <script src="node_modules/core-js/client/shim.min.js"></script>
     <script src="node_modules/zone.js/dist/zone.js"></script>
-
 
     <title>Angular project</title>
 </head>
@@ -66,15 +66,12 @@
     System.import('./app/main.js').catch(function (err) { console.error(err); });
 </script>
 </head>
-<app-component></app-component>
-
-<!--<div class="container-fluid">
-    <navigation></navigation>
-    <div class="row">
-        <ui-view class="col-xs-12"></ui-view>
-    </div>
-</div>-->
-
+<body>
+<div ng-init="val='Angular 1 bootstrapped successfully!'">
+    {{val}}
+</div>
+<app-component>..loading</app-component>
+<div clas='ui-view'></div>
 </body>
 
 </html>

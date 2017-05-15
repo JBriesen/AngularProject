@@ -5,11 +5,10 @@ angular.
             $locationProvider.html5Mode({
                 enabled: true
             });
-
             $stateProvider.
                 state('home', {
                     template: '<home></home>',
-                    url: '/home'
+                    url: '/home',
                 }).
                 state('userList', {
                     template: '<user-list></user-list>',
@@ -35,11 +34,13 @@ angular.
         }
     ])
     .run(function ($rootScope, $location, $state, authService) {
+        console.log("test");
         $rootScope.$on('$stateChangeStart', function (e, toState, toParams
             , fromState, fromParams) {
-
+             console.log("state")   
             var isLogin = toState.name === "login";
             if (isLogin) {
+                console.log(toState.name)
                 return; 
             }
 
@@ -50,6 +51,7 @@ angular.
 
             var authStatus = authService.getAuthStatus();
             if (authStatus === false) {
+                console.log('redirect');
                 e.preventDefault(); // stop current execution
                 $state.go('login'); // go to login
             }

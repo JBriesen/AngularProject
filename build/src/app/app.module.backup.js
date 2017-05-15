@@ -10,7 +10,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "@angular/core", "@angular/platform-browser", "@angular/upgrade/static", "./navigationNG2/navigationNG2.component"], factory);
+        define(["require", "exports", "@angular/core", "@angular/platform-browser", "@angular/upgrade/static", "./app.component"], factory);
     }
 })(function (require, exports) {
     "use strict";
@@ -18,19 +18,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     const core_1 = require("@angular/core");
     const platform_browser_1 = require("@angular/platform-browser");
     const static_1 = require("@angular/upgrade/static");
-    const navigationNG2_component_1 = require("./navigationNG2/navigationNG2.component");
+    const app_component_1 = require("./app.component");
     let AppModule = class AppModule {
         ngDoBootstrap() { }
     };
     AppModule = __decorate([
         core_1.NgModule({
-            declarations: [navigationNG2_component_1.NavigationNG2],
             imports: [
                 platform_browser_1.BrowserModule,
-                static_1.UpgradeModule,
+                static_1.UpgradeModule
             ],
-            bootstrap: [],
-            providers: []
+            bootstrap: [app_component_1.AppComponent],
+            declarations: [app_component_1.AppComponent]
         })
     ], AppModule);
     exports.AppModule = AppModule;
