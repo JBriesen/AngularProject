@@ -10,7 +10,7 @@ System.register(["@angular/core", "@angular/upgrade/static"], function (exports_
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, static_1, NavigationDirective;
+    var core_1, static_1, AngularJSComponent, m;
     return {
         setters: [
             function (core_1_1) {
@@ -21,19 +21,18 @@ System.register(["@angular/core", "@angular/upgrade/static"], function (exports_
             }
         ],
         execute: function () {
-            NavigationDirective = class NavigationDirective extends static_1.UpgradeComponent {
-                constructor(elementRef, injector) {
-                    console.log(injector);
-                    super('navigation', elementRef, injector);
+            AngularJSComponent = class AngularJSComponent extends static_1.UpgradeComponent {
+                constructor(ref, inj) {
+                    super('navigationComponent', ref, inj);
                 }
             };
-            NavigationDirective = __decorate([
-                core_1.Directive({
-                    selector: 'angularjs-component'
-                }),
+            AngularJSComponent = __decorate([
+                core_1.Directive({ selector: 'navigation-component' }),
                 __metadata("design:paramtypes", [core_1.ElementRef, core_1.Injector])
-            ], NavigationDirective);
-            exports_1("NavigationDirective", NavigationDirective);
+            ], AngularJSComponent);
+            exports_1("AngularJSComponent", AngularJSComponent);
+            m = angular.module('app', []);
+            m.component('navigationComponent', {});
         }
     };
 });

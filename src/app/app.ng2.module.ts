@@ -1,33 +1,41 @@
-import { NgModule, forwardRef } from '@angular/core';
+import { NgModule, forwardRef, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { UpgradeModule } from '@angular/upgrade/static';
 import { NavigationNG2 } from "./navigationNG2/navigationNG2.component";
 import { AppComponent } from "./app.component";
-import { NavigationDirective } from './navigation/navigation.component.wrapper'
+import { AngularJSComponent } from './navigation/navigation.component.wrapper'
 import {RouterModule, Routes} from '@angular/router'
 
-// const appRoutes: Routes = [
-//   { path: '**', redirectTo: '/home' },
-// ];
+
+// @Component({
+//   selector: 'root-cmp',
+//   template: `
+//       <navigation></navigation>
+
+//     <p>Angular 2 root cmp</p>
+//     <div class="ui-view"></div>
+//   `,
+// })
+// export class RootCmp {}
 
 @NgModule({
-  declarations:[AppComponent, NavigationDirective],
+  declarations:[AppComponent],
   imports: [
     BrowserModule,
     UpgradeModule,
-    //RouterModule.forRoot(appRoutes)
+    RouterModule,
   ],
   bootstrap:[],
   providers:[],
-  entryComponents:[
-    AppComponent,
-    ]
+  entryComponents:[AppComponent]
 })
 
 export class Ng2AppModule {
-constructor(public upgrade: UpgradeModule){}
+  constructor(){
+    console.log('ng 2 bootstrapped')
+  }
 
   ngDoBootstrap(){
-    this.upgrade.bootstrap(document.body,['app'])
+    //this.upgrade.bootstrap(document.body,['app'])
   }
 }

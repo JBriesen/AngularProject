@@ -2,7 +2,6 @@
     'use strict';
     //Upgraded component
     
-
     angular
         .module('app')
         .component('navigation', component());

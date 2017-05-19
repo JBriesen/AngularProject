@@ -1,20 +1,29 @@
-import { OnInit, Component } from '@angular/core';
+import { OnInit, Component, Input, Output, EventEmitter } from '@angular/core';
 import { UpgradeModule, downgradeComponent, UpgradeComponent } from '@angular/upgrade/static';
-
-import * as _angular_ from 'angular';
-
-declare global {
-  const angular: typeof _angular_;
-}
 
 @Component({
  selector: 'app-component',
  template: `
- <p> angular 2 bootstrapped </p>
- `,
+    <div>
+        <h1>Hello from {{ name }}!! :)</h1>
+        <button (click)="onClick()">click me bro</button> 
+    </div>
+ `
 })
-export class AppComponent{}
+export class AppComponent implements OnInit{
+    @Input() name: string;
+    @Output() onButtonClick: EventEmitter<string> = new EventEmitter();
 
-const m = angular.module('app',['userList', 'navigation', 'ngRoute', 'ui.router', 'ui.router.state.events']);
-m.directive('appComponent', downgradeComponent({component:AppComponent}))
 
+    constructor(private upgrade: UpgradeModule){}
+    ngOnInit() {
+        console.log('ng2', this.onButtonClick)
+    }
+
+    onClick() {
+        console.log('clicked');
+        this.onButtonClick.emit('Roy');
+    }
+}
+
+ 
