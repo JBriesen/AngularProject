@@ -1,13 +1,4 @@
-(function () {
-    'use strict';
-
-    angular
-        .module('app')
-        .component('userList', component());
-
-    function component() {
-
-        function componentController(userService, $state) {
+function componentController(userService, $state) {
             var vm = this;
             vm.getUserList = getUserList;
             vm.createUser = createUser;
@@ -26,6 +17,7 @@
             function change(searchTerm) {
                 if (searchTerm.length > 2) {
                     vm.userListArr = userService.getUserList(searchTerm)
+                    console.log(vm.userListArr);
                 }
                 else {
                     vm.userListArr = [];
@@ -33,12 +25,7 @@
             }
         }
 
-        return {
-            bindings: {
-            },
-            templateUrl: "app/user-list/user-list.html",
+        export const UserListComponent = {
+            templateUrl: "./user-list.html",
             controller: componentController,
         }
-    }
-
-}());

@@ -1,13 +1,4 @@
-(function () {
-    'use strict';
-    //Upgraded component
-    
-    angular
-        .module('app')
-        .component('navigation', component());
-
-    function component() {
-        function componentController(authService, $rootScope, $state) {
+function componentController(authService, $rootScope, $state) {
             var vm = this;
             vm.loggedIn = false;
             vm.logOut = logout;
@@ -30,11 +21,9 @@
                 });
         }
 
-        return {
+        export const NavigationComponent = {
             bindings: {},
-            templateUrl: "app/navigation/navigation.html",
+            templateUrl: "./navigation.html",
             controller: componentController,
         }
-    }
-}());
 

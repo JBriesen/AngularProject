@@ -4,10 +4,6 @@ import { Ng2AppModule } from './app.ng2.module';
 import { downgradeComponent, UpgradeModule } from "@angular/upgrade/static";
 import { NavigationNG2 } from "./navigationNG2/navigationNG2.component";
 
-//works
-// m.component('downgradedNavigation',
-//   downgradeComponent({component: NavigationNG2}))
-
 platformBrowserDynamic().bootstrapModule(Ng2AppModule).then(platformRef => {
   const upgrade = platformRef.injector.get(UpgradeModule) as UpgradeModule;
   // bootstrap angular1

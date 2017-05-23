@@ -1,14 +1,20 @@
-(function () {
-    'use strict';
-    class userService {
-        constructor($http, authService) {
-            this.authService = authService;
-            $http.get('./app/JSON/employees.json')
-                .then(res => {
-                    this.employees = res.data;
-                }).catch(error => {
-                    console.log(error);
-                })
+    import AuthService from '../app.AuthService'
+    class UserService {
+    static $inject = ['$http', 'authService'];
+        employees:any;
+        constructor(private $http, public AuthService) {
+            this.$http = $http;
+            this.AuthService = AuthService;
+            this.getData();
+        }
+
+        getData(){
+            this.$http.get('./src/app/JSON/employees.json')
+            .then(res => {
+                this.employees = res.data;
+            }).catch(error => {
+                console.log(error);
+            })
         }
 
         findUser(id) {
@@ -44,7 +50,7 @@
 
         getUserList(searchTerm) {
                 return this.employees.filter(function (user) {
-                        return user.firstName.toLowerCase().includes(searchTerm.toLowerCase())
+                    return user.firstName.toLowerCase().includes(searchTerm.toLowerCase())
                 })
         }
 
@@ -55,20 +61,12 @@
         //TODO need to fix this check
         checkLogin(username, password) {
             for (var i = 0; i < this.employees.length; i++) {
-                //console.log(this.data.users[i])
                 if (this.employees[i].username == username && this.employees[i].password == password) {
-                    this.authService.setUserAuthenticated(this.employees[i])
+                    this.AuthService.setUserAuthenticated(this.employees[i])
                     return this.employees[i].id;
-                    break;
-                }
-                else if (this.employees[i].username == username && this.employees[i].password != password) {
-                    return -1;
-                    break;
-                }
             }
-            return -2;
         }
+    };
     }
-    userService.$inject = ['$http','authService']
-    angular.module('app').service('userService', userService);
-}());
+
+    export default UserService;

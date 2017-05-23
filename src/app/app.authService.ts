@@ -1,8 +1,8 @@
-(function () {
-    'use strict';
-    class authService {
+    class AuthService {
+        userIsAuthenticated:boolean = false;
+        user: any;
         constructor() {
-            this.userIsAuthenticated = false;
+
         }
 
         setUserAuthenticated(user){
@@ -21,5 +21,4 @@
             this.user = {};
         }
     }
-    angular.module('app').service('authService', authService);
-}());
+    export default AuthService;

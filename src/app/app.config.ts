@@ -1,4 +1,4 @@
-AppConfig.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider'];
+//AppConfig.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider'];
 
 export function AppConfig($locationProvider, $stateProvider, $urlRouterProvider) {
             $locationProvider.html5Mode({
@@ -10,15 +10,15 @@ export function AppConfig($locationProvider, $stateProvider, $urlRouterProvider)
                         <home></home>
                     `,
                     url: '/home',
+                }).
+                state('userList', {
+                    template: '<user-list></user-list>',
+                    url: '/userList/'
+                }).
+                state('userDetail', {
+                    template: '<user-detail></user-detail>',
+                    url: '/userList/:id'
                 })
-                // state('userList', {
-                //     template: '<user-list></user-list>',
-                //     url: '/userList/'
-                // }).
-                // state('userDetail', {
-                //     template: '<user-detail></user-detail>',
-                //     url: '/userList/:id'
-                // }).
                 // state('userEdit', {
                 //     template: '<user-edit></user-edit>',
                 //     url: '/userList/edit/:id',

@@ -15,7 +15,8 @@ function componentController(){
         }
 
         export const HomeComponent = {
-            template: '{{$ctrl.nameChanged}}<app-component [name]="$ctrl.name" (on-button-click)="$ctrl.nameChanged($event)"></app-component>',//"app/home/home.component.html",
+            //template: '{{$ctrl.nameChanged}}<app-component [name]="$ctrl.name" (on-button-click)="$ctrl.nameChanged($event)"></app-component>',//"app/home/home.component.html",
+            templateUrl:'./home.component.html',
             controller: componentController
         }
     
