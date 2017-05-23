@@ -49,9 +49,7 @@
         }
 
         getUserList(searchTerm) {
-                return this.employees.filter(function (user) {
-                    return user.firstName.toLowerCase().includes(searchTerm.toLowerCase())
-                })
+                return this.employees.filter(user => user.username == searchTerm) ;
         }
 
         getUserDetails(userId) {
