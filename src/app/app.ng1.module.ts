@@ -6,7 +6,7 @@ import { AppConfig } from './app.config';
 import { downgradeComponent } from "@angular/upgrade/static";
 import { AppComponent } from "./app.component";
 import { HomeModule } from './home/home.module';
-import { NavigationModule} from './navigation/navigation.module'
+import { NavigationModule} from './navigation/navigation.module';
 
 import StatsService from './stats.service';
 import AuthService from './app.AuthService';
