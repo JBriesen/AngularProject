@@ -1,4 +1,4 @@
-import StatsService from '../stats.service';
+import StatsService from '../../stats.service';
 function componentController(StatsService){
     var vm = this;
     init();

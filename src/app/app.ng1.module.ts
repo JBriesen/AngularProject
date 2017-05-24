@@ -2,8 +2,6 @@ import * as angular from 'angular';
 import uirouter from 'angular-ui-router';
 
 import { UserListModule } from './user-list/user-list.module';
-import { CustomerStatsModule } from './customer-stats/customer-stats.module';
-import { ExployeeStatsModule } from './employee-stats/employee-stats.module';
 import { AppConfig } from './app.config';
 import { downgradeComponent } from "@angular/upgrade/static";
 import { AppComponent } from "./app.component";
@@ -14,16 +12,18 @@ import StatsService from './stats.service';
 import AuthService from './app.AuthService';
 import UserService from './user-list/user.service';
 
+// import { FilterModule } from './filters/filters.module'
 
 export const Ng1AppModule = angular
-    .module('app', [uirouter, UserListModule.name, HomeModule.name, CustomerStatsModule.name,NavigationModule.name,ExployeeStatsModule.name])
+    .module('app', [uirouter, UserListModule.name, HomeModule.name, NavigationModule.name])
     .config(AppConfig)
     .service({'StatsService': StatsService,'authService':AuthService, 'userService':UserService})
-    // .directive('appComponent', downgradeComponent({ 
-    //     component: AppComponent,
-    //     inputs: ['name'],
-    //     outputs: ['onButtonClick']
-    // }))
+    // .filter('sumOfValue',FilterModule.filter)
+    // // .directive('appComponent', downgradeComponent({ 
+    // //     component: AppComponent,
+    // //     inputs: ['name'],
+    // //     outputs: ['onButtonClick']
+    // // }))
     .run(function ($rootScope, $location, $state, authService) {
         console.log("test");
         $rootScope.$on('$stateChangeStart', function (e, toState, toParams

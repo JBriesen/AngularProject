@@ -1,20 +1,41 @@
 import * as angular from 'angular';
 
-module  FiltersModule {
-export function SumOfValue() {
-    return function(data, key) {
-        return(sum: number) => {
-            if (angular.isUndefined(data) || angular.isUndefined(key)) {
-                return sum;
+// export function SumOfValue(data,key) {
+//         return function(sum: number) {
+//             if (angular.isUndefined(data) || angular.isUndefined(key)) {
+//                 return sum;
+//             }
+//             else {
+//                 angular.forEach(data, function (value) {
+//                     sum = sum + parseInt(value[key]);
+//                 })
+//                 return sum;
+//             }
+//         }
+//     }
+
+module Filter {
+    'use strict';
+
+    export class SumFilter {
+
+        constructor() {
+        }
+
+        filter(data,key):number {
+            var result = 0;
+            if (angular.isUndefined(data)|| angular.isUndefined(key)) {
+                return result;
             }
-            else {
-                angular.forEach(data, function (value) {
-                    sum = sum + parseInt(value[key]);
+            else{
+                angular.forEach(data,function(value){
+                    result =result + parseInt(value[key])
                 })
-                return sum;
+                return result;
             }
         }
     }
 }
-angular.module('app').filter('sumOfValue', SumOfValue)
-}
+
+// export const FilterModule = 
+// angular.module('filter').filter('sumOfValue',Filter.SumFilter)

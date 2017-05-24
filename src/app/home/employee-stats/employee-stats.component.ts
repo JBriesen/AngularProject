@@ -1,5 +1,5 @@
-import StatsService from '../stats.service';
-import authService from '../app.authService';
+import StatsService from '../../stats.service';
+import authService from '../../app.authService';
 
 function componentController(StatsService,authService){
     var vm = this;
@@ -17,5 +17,5 @@ function componentController(StatsService,authService){
 
 export const EmployeeStatsComponent = {
     templateUrl: "./employee-stats.component.html",
-    controller: componentController,
+    controller: componentController
 }
