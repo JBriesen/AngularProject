@@ -1,17 +1,17 @@
 <div ng-if="$ctrl.isLoggedIn">
     <div class="col-xs-12">
         <div class="col-xs-6"># Employees :{{$ctrl.employeeStats.length}}</div>
-        <div class="col-xs-6"># VacationDays :{{$ctrl.employeeStats | sumOfValue:'vacationDays'}}</div>
+        <!--<div class="col-xs-6"># VacationDays :{{$ctrl.employeeStats | sumOfValue:'vacationDays'}}</div>
         <div class="col-xs-6"># WorksDays :{{$ctrl.employeeStats | sumOfValue:'workDays'}}</div>
-        <div class="col-xs-6"># SickDays :{{$ctrl.employeeStats | sumOfValue:'sickDays'}}</div>
-    </div>
-    <hr />
+        <div class="col-xs-6"># SickDays :{{$ctrl.employeeStats | sumOfValue:'sickDays'}}</div>-->
+        <hr />
 
-    <div class="col-xs-12" ng-repeat="employee in $ctrl.employeeStats">
-        <h3>{{employee.employeeId}}</h3>
-        <div class="col-xs-3"> VacationDays : {{employee.vacationDays}}</div>
-        <div class="col-xs-3"> WorkDays : {{employee.workDays}} </div>
-        <div class="col-xs-3"> SickDays : {{employee.sickDays}}</div>
+        <div class="col-xs-12" ng-repeat="employee in $ctrl.employeeStats">
+            <h3>{{employee.employeeId}}</h3>
+            <div class="col-xs-3"> VacationDays : {{employee.vacationDays}}</div>
+            <div class="col-xs-3"> WorkDays : {{employee.workDays}} </div>
+            <div class="col-xs-3"> SickDays : {{employee.sickDays}}</div>
+        </div>
     </div>
 </div>
 

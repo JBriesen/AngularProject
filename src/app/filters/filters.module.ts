@@ -1,15 +1,20 @@
 import * as angular from 'angular';
-export default function()
-{
-    return (data,key) => {
-        if (angular.isUndefined(data) || angular.isUndefined(key))
-        {
-            return 0;
+
+module  FiltersModule {
+export function SumOfValue() {
+    return function(data, key) {
+        return(sum: number) => {
+            if (angular.isUndefined(data) || angular.isUndefined(key)) {
+                return sum;
+            }
+            else {
+                angular.forEach(data, function (value) {
+                    sum = sum + parseInt(value[key]);
+                })
+                return sum;
+            }
         }
-        var sum = 0;
-        angular.forEach(data,function(value){
-            sum = sum + parseInt(value[key]);
-        })
-        return sum;
     }
+}
+angular.module('app').filter('sumOfValue', SumOfValue)
 }

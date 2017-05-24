@@ -1,5 +1,5 @@
 import StatsService from '../stats.service';
-import AuthService from '../app.authService';
+import authService from '../app.authService';
 
 function componentController(StatsService,authService){
     var vm = this;
