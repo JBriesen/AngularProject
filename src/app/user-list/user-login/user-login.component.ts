@@ -1,14 +1,3 @@
-
-(function () {
-    'use strict';
-
-    angular
-        .module ('app')
-        .component ('userLogin', component());
-
-
-    function component() {
-
         function componentController(userService, $state, $rootScope){
             var vm = this;
             vm.loginCheck = loginCheck;
@@ -42,11 +31,8 @@
             }
         }
 
-        return {
+        export const UserLoginComponent = {
             bindings: {},
-            templateUrl:"app/user-list/user-login/user-login.component.html",
+            templateUrl:"./user-login.component.html",
             controller: componentController
         }
-    }
-
-} ());

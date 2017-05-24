@@ -1,14 +1,4 @@
-(function () {
-    'use strict';
-
-    angular
-        .module('app')
-        .component('userEdit', component());
-
-
-    function component() {
-
-        function componentController($stateParams, $state,userService, authService) {
+        function componentController($location,$stateParams, $state,userService, authService) {
             var vm = this;
             var userId = $stateParams.id;
             vm.saveUserDetails = saveUserDetails;
@@ -40,12 +30,10 @@
             }
         }
 
-        return {
+        export const UserEditComponent = {
             bindings: {
             },
-            templateUrl: "app/user-list/user-edit/user-edit.html",
+            templateUrl: "./user-edit.html",
             controller: componentController,
             controllerAs: ''
         }
-    }
-}());
