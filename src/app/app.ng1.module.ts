@@ -11,9 +11,11 @@ import AuthService from './app.AuthService';
 import UserService from './user-list/user.service';
 
 import * as angular from 'angular';
+import uirouter from 'angular-ui-router';
+
 
 export const Ng1AppModule = angular
-    .module('app', ['ngRoute', 'ui.router', UserListModule.name, HomeModule.name, CustomerStatsModule.name,NavigationModule.name,ExployeeStatsModule.name])
+    .module('app', [uirouter, UserListModule.name, HomeModule.name, CustomerStatsModule.name,NavigationModule.name,ExployeeStatsModule.name])
     .config(AppConfig)
     .service({'StatsService': StatsService,'authService':AuthService, 'userService':UserService})
     .directive('appComponent', downgradeComponent({ 

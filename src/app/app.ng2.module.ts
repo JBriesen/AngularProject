@@ -3,20 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { UpgradeModule } from '@angular/upgrade/static';
 import { NavigationNG2 } from "./navigationNG2/navigationNG2.component";
 import { AppComponent } from "./app.component";
-import { AngularJSComponent } from './navigation/navigation.component.wrapper'
+//import { AngularJSComponent } from './navigation/navigation.component.wrapper'
 import {RouterModule, Routes} from '@angular/router'
 
 
-// @Component({
-//   selector: 'root-cmp',
-//   template: `
-//       <navigation></navigation>
-
-//     <p>Angular 2 root cmp</p>
-//     <div class="ui-view"></div>
-//   `,
-// })
-// export class RootCmp {}
 
 @NgModule({
   declarations:[AppComponent],
