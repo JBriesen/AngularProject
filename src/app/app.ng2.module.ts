@@ -1,23 +1,23 @@
 import { NgModule, forwardRef, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { UpgradeModule } from '@angular/upgrade/static';
-import { NavigationNG2 } from "./navigationNG2/navigationNG2.component";
+import { NavigationNG2Component } from "./navigationNG2/navigationNG2.component";
 import { AppComponent } from "./app.component";
-//import { AngularJSComponent } from './navigation/navigation.component.wrapper'
 import {RouterModule, Routes} from '@angular/router'
+import { CustomerStatsComponentNg2 } from "./home/customer-stats.ng2/customer-stats.component";
 
-
+import { StatsServiceProvider } from './ajs-upgraded-providers';
 
 @NgModule({
-  declarations:[AppComponent],
+  declarations:[CustomerStatsComponentNg2],
   imports: [
     BrowserModule,
     UpgradeModule,
     RouterModule,
   ],
   bootstrap:[],
-  providers:[],
-  entryComponents:[AppComponent]
+  providers:[StatsServiceProvider],
+  entryComponents:[CustomerStatsComponentNg2]
 })
 
 export class Ng2AppModule {
@@ -26,6 +26,5 @@ export class Ng2AppModule {
   }
 
   ngDoBootstrap(){
-    //this.upgrade.bootstrap(document.body,['app'])
   }
 }

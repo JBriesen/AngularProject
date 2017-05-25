@@ -12,18 +12,17 @@ import StatsService from './stats.service';
 import AuthService from './app.AuthService';
 import UserService from './user-list/user.service';
 
+/* angular components */
+import {NavigationNG2Component} from './navigationNG2/navigationNG2.component';
+
 // import { FilterModule } from './filters/filters.module'
 
 export const Ng1AppModule = angular
     .module('app', [uirouter, UserListModule.name, HomeModule.name, NavigationModule.name])
     .config(AppConfig)
     .service({'StatsService': StatsService,'authService':AuthService, 'userService':UserService})
-    // .filter('sumOfValue',FilterModule.filter)
-    // // .directive('appComponent', downgradeComponent({ 
-    // //     component: AppComponent,
-    // //     inputs: ['name'],
-    // //     outputs: ['onButtonClick']
-    // // }))
+    //.directive('navigationNg2', downgradeComponent({component:NavigationNG2Component}))
+
     .run(function ($rootScope, $location, $state, authService) {
         console.log("test");
         $rootScope.$on('$stateChangeStart', function (e, toState, toParams
@@ -47,4 +46,4 @@ export const Ng1AppModule = angular
                 $state.go('login'); // go to login
             }
         });
-    }); //, 'navigation', 'ngRoute', 'ui.router', 'ui.router.state.events']);
+    }); 

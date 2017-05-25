@@ -5,12 +5,10 @@ import {UpgradeModule, downgradeComponent} from '@angular/upgrade/static'
 // angular.module(moduleName, []);
 
 @Component({
-  selector: 'navigationNG2',
+  selector: 'navigation-NG2',
   templateUrl: './navigationNG2.component.html',
 })
 
-export class NavigationNG2{
+export class NavigationNG2Component{
   constructor() {  }
 }
-
-//HybridHelper.downgradeComponent(moduleName, 'NavigationNG2', NavigationNG2);

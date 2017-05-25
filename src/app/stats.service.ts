@@ -1,4 +1,4 @@
-class StatsService {
+export class StatsService {
     static $inject = ['$http', 'authService'];
     constructor(private $http) {
         this.$http = $http;
@@ -17,7 +17,7 @@ class StatsService {
     getCustStats() {
         return this.$http.get('./src/app/JSON/customerStats.json')
             .then(res => {
-            console.log(res);
+            console.log(" getCustStats "+res);
             return res
         }).catch(error => {
             console.log(error);
