@@ -7,9 +7,10 @@ import {RouterModule, Routes} from '@angular/router'
 import { CustomerStatsComponentNg2 } from "./home/customer-stats.ng2/customer-stats.component";
 
 import { StatsServiceProvider } from './ajs-upgraded-providers';
+import { SumOfvaluePipe } from "./filters/sumOfValue.pipe";
 
 @NgModule({
-  declarations:[CustomerStatsComponentNg2],
+  declarations:[CustomerStatsComponentNg2, SumOfvaluePipe],
   imports: [
     BrowserModule,
     UpgradeModule,

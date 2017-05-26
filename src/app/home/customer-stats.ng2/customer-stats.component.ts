@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import {StatsService} from '../../stats.service'
+import {StatsService} from '../../stats.service';
 
 @Component({
   selector: 'customer-stats-ng2',
