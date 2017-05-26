@@ -21,6 +21,8 @@ export const Ng1AppModule = angular
     .module('app', [uirouter, UserListModule.name, HomeModule.name, NavigationModule.name])
     .config(AppConfig)
     .service({'StatsService': StatsService,'authService':AuthService, 'userService':UserService})
+    //.filter('sumOfValue',FilterModule.sumOfValue)
+
     //.directive('navigationNg2', downgradeComponent({component:NavigationNG2Component}))
 
     .run(function ($rootScope, $location, $state, authService) {
