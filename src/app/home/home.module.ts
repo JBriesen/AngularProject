@@ -11,4 +11,3 @@ import * as SumOfValue from './../filters/sumOfValue.filter';
 export const HomeModule = angular
     .module('home', [ EmployeeStatsModule.name, CustomerStatsModule.name])
     .component('home', HomeComponent)
-    .directive('customerStats', downgradeComponent({component:CustomerStatsComponentNg2}))
